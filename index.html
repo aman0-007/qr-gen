@@ -3,85 +3,383 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR co-gen</title>
+    <title>QR-Gen - Professional QR Code Generator</title>
+    <meta name="description" content="Create professional QR codes instantly with QR-Gen. Choose from multiple styles, add logos, and download high-quality QR codes for any purpose.">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/qr-code-styling/lib/qr-code-styling.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%232563eb' d='M96 0C43 0 0 43 0 96v320c0 53 43 96 96 96h320c53 0 96-43 96-96V96c0-53-43-96-96-96H96zm170.7 64h42.7v42.7h-42.7V64zm85.3 0h42.7v42.7h-42.7V64zM256 128h85.3v85.3H256V128zM384 128h42.7v42.7h-42.7V128zm0 85.3h42.7v42.7h-42.7V213.3zm0 85.4h42.7v42.6h-42.7V300zM256 300h42.7v42.7H256V300zM64 256h85.3v85.3H64V256zm170.7 0H213.3v42.7h21.4V256zm0 42.7v42.7h-42.7v-42.7h42.7zM170.7 341.3H213.3v42.7h-42.7v-42.7zM64 341.3h42.7v42.7H64v-42.7zM64 426.7h42.7v42.7H64V426.7zM170.7 426.7H256v42.7h-85.3v-42.7zm170.7 0h42.7v42.7h-42.7V426.7zm85.3 0h42.7v42.7h-42.7V426.7z'/%3E%3C/svg%3E" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%232563eb;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%236366f1;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23grad)'/%3E%3Cg fill='white'%3E%3Crect x='15' y='15' width='25' height='25' rx='3'/%3E%3Crect x='60' y='15' width='25' height='25' rx='3'/%3E%3Crect x='15' y='60' width='25' height='25' rx='3'/%3E%3Crect x='60' y='60' width='10' height='10' rx='2'/%3E%3Crect x='75' y='60' width='10' height='10' rx='2'/%3E%3Crect x='60' y='75' width='10' height='10' rx='2'/%3E%3Crect x='75' y='75' width='10' height='10' rx='2'/%3E%3Crect x='50' y='50' width='8' height='8' rx='1'/%3E%3C/g%3E%3C/svg%3E" type="image/svg+xml">
 </head>
-<body class="bg-gradient-to-br from-blue-100 to-gray-100 font-sans">
-    <header class="absolute top-0 left-0 right-0 p-6 z-10">
-        <div class="flex items-center space-x-2 text-blue-600 font-bold text-xl">
-            <svg class="w-8 h-8" viewBox="0 0 512 512" fill="currentColor">
-                <path d="M96 0C43 0 0 43 0 96v320c0 53 43 96 96 96h320c53 0 96-43 96-96V96c0-53-43-96-96-96H96zm170.7 64h42.7v42.7h-42.7V64zm85.3 0h42.7v42.7h-42.7V64zM256 128h85.3v85.3H256V128zM384 128h42.7v42.7h-42.7V128zm0 85.3h42.7v42.7h-42.7V213.3zm0 85.4h42.7v42.6h-42.7V300zM256 300h42.7v42.7H256V300zM64 256h85.3v85.3H64V256zm170.7 0H213.3v42.7h21.4V256zm0 42.7v42.7h-42.7v-42.7h42.7zM170.7 341.3H213.3v42.7h-42.7v-42.7zM64 341.3h42.7v42.7H64v-42.7zM64 426.7h42.7v42.7H64V426.7zM170.7 426.7H256v42.7h-85.3v-42.7zm170.7 0h42.7v42.7h-42.7V426.7zm85.3 0h42.7v42.7h-42.7V426.7z"/>
-            </svg>
-            <span>QR co-gen</span>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#6366f1;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="100" height="100" rx="20" fill="url(#logoGrad)"/>
+                    <g fill="white">
+                        <rect x="15" y="15" width="25" height="25" rx="3"/>
+                        <rect x="60" y="15" width="25" height="25" rx="3"/>
+                        <rect x="15" y="60" width="25" height="25" rx="3"/>
+                        <rect x="60" y="60" width="10" height="10" rx="2"/>
+                        <rect x="75" y="60" width="10" height="10" rx="2"/>
+                        <rect x="60" y="75" width="10" height="10" rx="2"/>
+                        <rect x="75" y="75" width="10" height="10" rx="2"/>
+                        <rect x="50" y="50" width="8" height="8" rx="1"/>
+                    </g>
+                </svg>
+                <span class="logo-text">QR-Gen</span>
+            </div>
+            <nav class="nav">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
         </div>
     </header>
 
-    <div class="main-content-wrapper">
-        <!-- Hero Text -->
-        <div class="text-center mb-10 hero-text">
-            Easily create a QR code for any occasion in seconds!
-        </div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Professional QR Code Generator</h1>
+                <p class="hero-subtitle">Create stunning, customizable QR codes in seconds with our advanced generator</p>
+            </div>
+        </section>
 
-        <!-- Main Content -->
-        <div class="container flex-1 flex flex-col md:flex-row gap-12">
-            <!-- Left Panel: Input and Controls -->
-            <div class="flex-1 flex flex-col gap-6">
-                <div class="flex flex-col gap-4">
-                    <label for="qrText" class="text-sm font-semibold text-gray-700">Enter link or text:</label>
-                    <input type="text" id="qrText" placeholder="https://www.example.com" class="px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors">
+        <!-- QR Generator Section -->
+        <section class="generator-section">
+            <div class="container">
+                <!-- Input Panel -->
+                <div class="input-panel">
+                    <div class="input-group">
+                        <label for="qrText" class="input-label">
+                            <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.102m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                            </svg>
+                            Enter URL or Text
+                        </label>
+                        <input type="text" id="qrText" placeholder="https://www.example.com" class="input-field">
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label">
+                            <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a4 4 0 004-4V5z"></path>
+                            </svg>
+                            Choose QR Code Style
+                        </label>
+                        <div class="style-grid">
+                            <button class="style-btn active" data-style="square" data-name="Classic Square">
+                                <div class="style-preview">
+                                    <svg viewBox="0 0 100 100" fill="currentColor">
+                                        <rect x="10" y="10" width="15" height="15"/>
+                                        <rect x="35" y="10" width="15" height="15"/>
+                                        <rect x="60" y="10" width="15" height="15"/>
+                                        <rect x="10" y="35" width="15" height="15"/>
+                                        <rect x="35" y="35" width="15" height="15"/>
+                                        <rect x="60" y="35" width="15" height="15"/>
+                                        <rect x="10" y="60" width="15" height="15"/>
+                                        <rect x="35" y="60" width="15" height="15"/>
+                                        <rect x="60" y="60" width="15" height="15"/>
+                                    </svg>
+                                </div>
+                                <span class="style-name">Classic</span>
+                            </button>
+                            
+                            <button class="style-btn" data-style="dots" data-name="Circular Dots">
+                                <div class="style-preview">
+                                    <svg viewBox="0 0 100 100" fill="currentColor">
+                                        <circle cx="17.5" cy="17.5" r="7.5"/>
+                                        <circle cx="42.5" cy="17.5" r="7.5"/>
+                                        <circle cx="67.5" cy="17.5" r="7.5"/>
+                                        <circle cx="17.5" cy="42.5" r="7.5"/>
+                                        <circle cx="42.5" cy="42.5" r="7.5"/>
+                                        <circle cx="67.5" cy="42.5" r="7.5"/>
+                                        <circle cx="17.5" cy="67.5" r="7.5"/>
+                                        <circle cx="42.5" cy="67.5" r="7.5"/>
+                                        <circle cx="67.5" cy="67.5" r="7.5"/>
+                                    </svg>
+                                </div>
+                                <span class="style-name">Dots</span>
+                            </button>
+
+                            <button class="style-btn" data-style="rounded" data-name="Rounded Squares">
+                                <div class="style-preview">
+                                    <svg viewBox="0 0 100 100" fill="currentColor">
+                                        <rect x="10" y="10" width="15" height="15" rx="4"/>
+                                        <rect x="35" y="10" width="15" height="15" rx="4"/>
+                                        <rect x="60" y="10" width="15" height="15" rx="4"/>
+                                        <rect x="10" y="35" width="15" height="15" rx="4"/>
+                                        <rect x="35" y="35" width="15" height="15" rx="4"/>
+                                        <rect x="60" y="35" width="15" height="15" rx="4"/>
+                                        <rect x="10" y="60" width="15" height="15" rx="4"/>
+                                        <rect x="35" y="60" width="15" height="15" rx="4"/>
+                                        <rect x="60" y="60" width="15" height="15" rx="4"/>
+                                    </svg>
+                                </div>
+                                <span class="style-name">Rounded</span>
+                            </button>
+
+                            <button class="style-btn" data-style="extra-rounded" data-name="Extra Rounded">
+                                <div class="style-preview">
+                                    <svg viewBox="0 0 100 100" fill="currentColor">
+                                        <rect x="10" y="10" width="15" height="15" rx="7.5"/>
+                                        <rect x="35" y="10" width="15" height="15" rx="7.5"/>
+                                        <rect x="60" y="10" width="15" height="15" rx="7.5"/>
+                                        <rect x="10" y="35" width="15" height="15" rx="7.5"/>
+                                        <rect x="35" y="35" width="15" height="15" rx="7.5"/>
+                                        <rect x="60" y="35" width="15" height="15" rx="7.5"/>
+                                        <rect x="10" y="60" width="15" height="15" rx="7.5"/>
+                                        <rect x="35" y="60" width="15" height="15" rx="7.5"/>
+                                        <rect x="60" y="60" width="15" height="15" rx="7.5"/>
+                                    </svg>
+                                </div>
+                                <span class="style-name">Smooth</span>
+                            </button>
+
+                            <button class="style-btn" data-style="classy" data-name="Classy Style">
+                                <div class="style-preview">
+                                    <svg viewBox="0 0 100 100" fill="currentColor">
+                                        <path d="M10 10h15v5h-5v5h-5v5h-5V10z"/>
+                                        <path d="M35 10h15v5h-5v5h-5v5h-5V10z"/>
+                                        <path d="M60 10h15v5h-5v5h-5v5h-5V10z"/>
+                                        <path d="M10 35h15v5h-5v5h-5v5h-5V35z"/>
+                                        <path d="M35 35h15v5h-5v5h-5v5h-5V35z"/>
+                                        <path d="M60 35h15v5h-5v5h-5v5h-5V35z"/>
+                                        <path d="M10 60h15v5h-5v5h-5v5h-5V60z"/>
+                                        <path d="M35 60h15v5h-5v5h-5v5h-5V60z"/>
+                                        <path d="M60 60h15v5h-5v5h-5v5h-5V60z"/>
+                                    </svg>
+                                </div>
+                                <span class="style-name">Classy</span>
+                            </button>
+
+                            <button class="style-btn" data-style="classy-rounded" data-name="Classy Rounded">
+                                <div class="style-preview">
+                                    <svg viewBox="0 0 100 100" fill="currentColor">
+                                        <path d="M10 10h15a3 3 0 013 3v12H13a3 3 0 01-3-3V10z"/>
+                                        <path d="M35 10h15a3 3 0 013 3v12H38a3 3 0 01-3-3V10z"/>
+                                        <path d="M60 10h15a3 3 0 013 3v12H63a3 3 0 01-3-3V10z"/>
+                                        <path d="M10 35h15a3 3 0 013 3v12H13a3 3 0 01-3-3V35z"/>
+                                        <path d="M35 35h15a3 3 0 013 3v12H38a3 3 0 01-3-3V35z"/>
+                                        <path d="M60 35h15a3 3 0 013 3v12H63a3 3 0 01-3-3V35z"/>
+                                        <path d="M10 60h15a3 3 0 013 3v12H13a3 3 0 01-3-3V60z"/>
+                                        <path d="M35 60h15a3 3 0 013 3v12H38a3 3 0 01-3-3V60z"/>
+                                        <path d="M60 60h15a3 3 0 013 3v12H63a3 3 0 01-3-3V60z"/>
+                                    </svg>
+                                </div>
+                                <span class="style-name">Elegant</span>
+                            </button>
+
+                            <button class="style-btn" data-style="diamond" data-name="Diamond Pattern">
+                                <div class="style-preview">
+                                    <svg viewBox="0 0 100 100" fill="currentColor">
+                                        <path d="M17.5 10l7.5 7.5-7.5 7.5-7.5-7.5z"/>
+                                        <path d="M42.5 10l7.5 7.5-7.5 7.5-7.5-7.5z"/>
+                                        <path d="M67.5 10l7.5 7.5-7.5 7.5-7.5-7.5z"/>
+                                        <path d="M17.5 35l7.5 7.5-7.5 7.5-7.5-7.5z"/>
+                                        <path d="M42.5 35l7.5 7.5-7.5 7.5-7.5-7.5z"/>
+                                        <path d="M67.5 35l7.5 7.5-7.5 7.5-7.5-7.5z"/>
+                                        <path d="M17.5 60l7.5 7.5-7.5 7.5-7.5-7.5z"/>
+                                        <path d="M42.5 60l7.5 7.5-7.5 7.5-7.5-7.5z"/>
+                                        <path d="M67.5 60l7.5 7.5-7.5 7.5-7.5-7.5z"/>
+                                    </svg>
+                                </div>
+                                <span class="style-name">Diamond</span>
+                            </button>
+
+                            <button class="style-btn" data-style="star" data-name="Star Pattern">
+                                <div class="style-preview">
+                                    <svg viewBox="0 0 100 100" fill="currentColor">
+                                        <path d="M17.5 10l2.5 5h5l-4 3 1.5 5-5-3.5-5 3.5 1.5-5-4-3h5z"/>
+                                        <path d="M42.5 10l2.5 5h5l-4 3 1.5 5-5-3.5-5 3.5 1.5-5-4-3h5z"/>
+                                        <path d="M67.5 10l2.5 5h5l-4 3 1.5 5-5-3.5-5 3.5 1.5-5-4-3h5z"/>
+                                        <path d="M17.5 35l2.5 5h5l-4 3 1.5 5-5-3.5-5 3.5 1.5-5-4-3h5z"/>
+                                        <path d="M42.5 35l2.5 5h5l-4 3 1.5 5-5-3.5-5 3.5 1.5-5-4-3h5z"/>
+                                        <path d="M67.5 35l2.5 5h5l-4 3 1.5 5-5-3.5-5 3.5 1.5-5-4-3h5z"/>
+                                        <path d="M17.5 60l2.5 5h5l-4 3 1.5 5-5-3.5-5 3.5 1.5-5-4-3h5z"/>
+                                        <path d="M42.5 60l2.5 5h5l-4 3 1.5 5-5-3.5-5 3.5 1.5-5-4-3h5z"/>
+                                        <path d="M67.5 60l2.5 5h5l-4 3 1.5 5-5-3.5-5 3.5 1.5-5-4-3h5z"/>
+                                    </svg>
+                                </div>
+                                <span class="style-name">Star</span>
+                            </button>
+
+                            <button class="style-btn" data-style="heart" data-name="Heart Pattern">
+                                <div class="style-preview">
+                                    <svg viewBox="0 0 100 100" fill="currentColor">
+                                        <path d="M17.5 15c-4 0-7.5 3-7.5 7s3.5 7 7.5 7c4 0 7.5-3 7.5-7s-3.5-7-7.5-7z"/>
+                                        <path d="M42.5 15c-4 0-7.5 3-7.5 7s3.5 7 7.5 7c4 0 7.5-3 7.5-7s-3.5-7-7.5-7z"/>
+                                        <path d="M67.5 15c-4 0-7.5 3-7.5 7s3.5 7 7.5 7c4 0 7.5-3 7.5-7s-3.5-7-7.5-7z"/>
+                                        <path d="M17.5 40c-4 0-7.5 3-7.5 7s3.5 7 7.5 7c4 0 7.5-3 7.5-7s-3.5-7-7.5-7z"/>
+                                        <path d="M42.5 40c-4 0-7.5 3-7.5 7s3.5 7 7.5 7c4 0 7.5-3 7.5-7s-3.5-7-7.5-7z"/>
+                                        <path d="M67.5 40c-4 0-7.5 3-7.5 7s3.5 7 7.5 7c4 0 7.5-3 7.5-7s-3.5-7-7.5-7z"/>
+                                        <path d="M17.5 65c-4 0-7.5 3-7.5 7s3.5 7 7.5 7c4 0 7.5-3 7.5-7s-3.5-7-7.5-7z"/>
+                                        <path d="M42.5 65c-4 0-7.5 3-7.5 7s3.5 7 7.5 7c4 0 7.5-3 7.5-7s-3.5-7-7.5-7z"/>
+                                        <path d="M67.5 65c-4 0-7.5 3-7.5 7s3.5 7 7.5 7c4 0 7.5-3 7.5-7s-3.5-7-7.5-7z"/>
+                                    </svg>
+                                </div>
+                                <span class="style-name">Heart</span>
+                            </button>
+
+                            <button class="style-btn" data-style="hexagon" data-name="Hexagon Pattern">
+                                <div class="style-preview">
+                                    <svg viewBox="0 0 100 100" fill="currentColor">
+                                        <path d="M17.5 10l6 3.5v7l-6 3.5-6-3.5v-7z"/>
+                                        <path d="M42.5 10l6 3.5v7l-6 3.5-6-3.5v-7z"/>
+                                        <path d="M67.5 10l6 3.5v7l-6 3.5-6-3.5v-7z"/>
+                                        <path d="M17.5 35l6 3.5v7l-6 3.5-6-3.5v-7z"/>
+                                        <path d="M42.5 35l6 3.5v7l-6 3.5-6-3.5v-7z"/>
+                                        <path d="M67.5 35l6 3.5v7l-6 3.5-6-3.5v-7z"/>
+                                        <path d="M17.5 60l6 3.5v7l-6 3.5-6-3.5v-7z"/>
+                                        <path d="M42.5 60l6 3.5v7l-6 3.5-6-3.5v-7z"/>
+                                        <path d="M67.5 60l6 3.5v7l-6 3.5-6-3.5v-7z"/>
+                                    </svg>
+                                </div>
+                                <span class="style-name">Hexagon</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="logoUpload" class="input-label">
+                            <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            Add Center Logo (Optional)
+                        </label>
+                        <input type="file" id="logoUpload" accept="image/*" class="file-input">
+                    </div>
+
+                    <button id="generateBtn" class="generate-btn">
+                        <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        Generate QR Code
+                    </button>
                 </div>
 
-                <div class="flex flex-col gap-4">
-                    <label for="styleSelect" class="text-sm font-semibold text-gray-700">Choose a style:</label>
-                    <div class="flex flex-wrap gap-4">
-                        <button class="style-btn active" data-style="square">
-                            <svg class="w-8 h-8" viewBox="0 0 100 100" fill="currentColor">
-                                <rect x="10" y="10" width="80" height="80" rx="10"/>
+                <!-- Output Panel -->
+                <div class="output-panel">
+                    <div class="qr-container">
+                        <div id="qrCode" class="qr-display"></div>
+                        <div class="qr-info">
+                            <p class="qr-status">Ready to generate your QR code</p>
+                            <p class="qr-details">Select a style and click generate</p>
+                        </div>
+                    </div>
+                    <button id="downloadBtn" class="download-btn" style="display: none;">
+                        <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        Download QR Code
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="features-container">
+                <h2 class="features-title">Why Choose QR-Gen?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                             </svg>
-                        </button>
-                        <button class="style-btn" data-style="dots">
-                            <svg class="w-8 h-8" viewBox="0 0 100 100" fill="currentColor">
-                                <circle cx="50" cy="50" r="40"/>
+                        </div>
+                        <h3 class="feature-title">Lightning Fast</h3>
+                        <p class="feature-description">Generate professional QR codes instantly with our optimized engine</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a4 4 0 004-4V5z"></path>
                             </svg>
-                        </button>
-                        <button class="style-btn" data-style="rounded">
-                            <svg class="w-8 h-8" viewBox="0 0 100 100" fill="currentColor">
-                                <rect x="10" y="10" width="80" height="80" rx="40"/>
+                        </div>
+                        <h3 class="feature-title">Multiple Styles</h3>
+                        <p class="feature-description">Choose from 10+ unique QR code styles to match your brand</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                             </svg>
-                        </button>
-                        <button class="style-btn" data-style="extra-rounded">
-                           <svg class="w-8 h-8" viewBox="0 0 100 100" fill="currentColor">
-                                <path d="M50 0a50 50 0 010 100A50 50 0 0150 0zM50 20a30 30 0 00-30 30c0 1.94.316 3.82.906 5.584L21.782 50 21.782 50A29.986 29.986 0 0050 80c1.94 0 3.82-.316 5.584-.906L50 78.218l0 0A29.986 29.986 0 0020 50a30 30 0 0030-30z" fill-rule="evenodd" clip-rule="evenodd" />
-                           </svg>
-                        </button>
-                        <button class="style-btn" data-style="classy">
-                            <svg class="w-8 h-8" viewBox="0 0 100 100" fill="currentColor">
-                                <path d="M50 0a50 50 0 00-50 50 50 50 0 0050 50 50 50 0 0050-50A50 50 0 0050 0z" />
+                        </div>
+                        <h3 class="feature-title">Custom Logos</h3>
+                        <p class="feature-description">Add your brand logo to the center of any QR code</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
                             </svg>
-                        </button>
+                        </div>
+                        <h3 class="feature-title">Mobile Optimized</h3>
+                        <p class="feature-description">Perfect experience on all devices, from mobile to desktop</p>
                     </div>
                 </div>
-
-                <div class="flex flex-col gap-4">
-                    <label for="logoUpload" class="text-sm font-semibold text-gray-700">Upload a center logo (optional):</label>
-                    <input type="file" id="logoUpload" accept="image/*" class="text-gray-600">
-                </div>
-
-                <button id="generateBtn" class="px-6 py-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-lg">Generate QR Code</button>
             </div>
-            
-            <!-- Right Panel: QR Code and Download -->
-            <div class="flex-1 flex flex-col items-center justify-center bg-gray-50 rounded-xl p-6 shadow-inner border-dashed border-2 border-gray-200">
-                <div id="qrCode" class="w-full max-w-sm aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4">
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <svg class="footer-logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#6366f1;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="100" height="100" rx="20" fill="url(#footerLogoGrad)"/>
+                        <g fill="white">
+                            <rect x="15" y="15" width="25" height="25" rx="3"/>
+                            <rect x="60" y="15" width="25" height="25" rx="3"/>
+                            <rect x="15" y="60" width="25" height="25" rx="3"/>
+                            <rect x="60" y="60" width="10" height="10" rx="2"/>
+                            <rect x="75" y="60" width="10" height="10" rx="2"/>
+                            <rect x="60" y="75" width="10" height="10" rx="2"/>
+                            <rect x="75" y="75" width="10" height="10" rx="2"/>
+                            <rect x="50" y="50" width="8" height="8" rx="1"/>
+                        </g>
+                    </svg>
+                    <span class="footer-logo-text">QR-Gen</span>
                 </div>
-                <button id="downloadBtn" style="display:none;" class="mt-6 px-6 py-3 rounded-xl font-semibold text-blue-600 border-2 border-blue-600 bg-white hover:bg-blue-600 hover:text-white transition-colors">Download QR Code</button>
+                <p class="footer-description">Professional QR code generation made simple and beautiful.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4 class="footer-heading">Product</h4>
+                    <a href="#features" class="footer-link">Features</a>
+                    <a href="#" class="footer-link">API</a>
+                    <a href="#" class="footer-link">Pricing</a>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Support</h4>
+                    <a href="#" class="footer-link">Documentation</a>
+                    <a href="#" class="footer-link">Help Center</a>
+                    <a href="#contact" class="footer-link">Contact</a>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 QR-Gen. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
