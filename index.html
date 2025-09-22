@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR co-gen</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling/lib/qr-code-styling.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%232563eb' d='M96 0C43 0 0 43 0 96v320c0 53 43 96 96 96h320c53 0 96-43 96-96V96c0-53-43-96-96-96H96zm170.7 64h42.7v42.7h-42.7V64zm85.3 0h42.7v42.7h-42.7V64zM256 128h85.3v85.3H256V128zM384 128h42.7v42.7h-42.7V128zm0 85.3h42.7v42.7h-42.7V213.3zm0 85.4h42.7v42.6h-42.7V300zM256 300h42.7v42.7H256V300zM64 256h85.3v85.3H64V256zm170.7 0H213.3v42.7h21.4V256zm0 42.7v42.7h-42.7v-42.7h42.7zM170.7 341.3H213.3v42.7h-42.7v-42.7zM64 341.3h42.7v42.7H64v-42.7zM64 426.7h42.7v42.7H64V426.7zM170.7 426.7H256v42.7h-85.3v-42.7zm170.7 0h42.7v42.7h-42.7V426.7zm85.3 0h42.7v42.7h-42.7V426.7z'/%3E%3C/svg%3E" type="image/svg+xml">
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-gray-100 font-sans">
+    <header class="absolute top-0 left-0 right-0 p-6 z-10">
+        <div class="flex items-center space-x-2 text-blue-600 font-bold text-xl">
+            <svg class="w-8 h-8" viewBox="0 0 512 512" fill="currentColor">
+                <path d="M96 0C43 0 0 43 0 96v320c0 53 43 96 96 96h320c53 0 96-43 96-96V96c0-53-43-96-96-96H96zm170.7 64h42.7v42.7h-42.7V64zm85.3 0h42.7v42.7h-42.7V64zM256 128h85.3v85.3H256V128zM384 128h42.7v42.7h-42.7V128zm0 85.3h42.7v42.7h-42.7V213.3zm0 85.4h42.7v42.6h-42.7V300zM256 300h42.7v42.7H256V300zM64 256h85.3v85.3H64V256zm170.7 0H213.3v42.7h21.4V256zm0 42.7v42.7h-42.7v-42.7h42.7zM170.7 341.3H213.3v42.7h-42.7v-42.7zM64 341.3h42.7v42.7H64v-42.7zM64 426.7h42.7v42.7H64V426.7zM170.7 426.7H256v42.7h-85.3v-42.7zm170.7 0h42.7v42.7h-42.7V426.7zm85.3 0h42.7v42.7h-42.7V426.7z"/>
+            </svg>
+            <span>QR co-gen</span>
+        </div>
+    </header>
+
+    <div class="main-content-wrapper">
+        <!-- Hero Text -->
+        <div class="text-center mb-10 hero-text">
+            Easily create a QR code for any occasion in seconds!
+        </div>
+
+        <!-- Main Content -->
+        <div class="container flex-1 flex flex-col md:flex-row gap-12">
+            <!-- Left Panel: Input and Controls -->
+            <div class="flex-1 flex flex-col gap-6">
+                <div class="flex flex-col gap-4">
+                    <label for="qrText" class="text-sm font-semibold text-gray-700">Enter link or text:</label>
+                    <input type="text" id="qrText" placeholder="https://www.example.com" class="px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors">
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <label for="styleSelect" class="text-sm font-semibold text-gray-700">Choose a style:</label>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="style-btn active" data-style="square">
+                            <svg class="w-8 h-8" viewBox="0 0 100 100" fill="currentColor">
+                                <rect x="10" y="10" width="80" height="80" rx="10"/>
+                            </svg>
+                        </button>
+                        <button class="style-btn" data-style="dots">
+                            <svg class="w-8 h-8" viewBox="0 0 100 100" fill="currentColor">
+                                <circle cx="50" cy="50" r="40"/>
+                            </svg>
+                        </button>
+                        <button class="style-btn" data-style="rounded">
+                            <svg class="w-8 h-8" viewBox="0 0 100 100" fill="currentColor">
+                                <rect x="10" y="10" width="80" height="80" rx="40"/>
+                            </svg>
+                        </button>
+                        <button class="style-btn" data-style="extra-rounded">
+                           <svg class="w-8 h-8" viewBox="0 0 100 100" fill="currentColor">
+                                <path d="M50 0a50 50 0 010 100A50 50 0 0150 0zM50 20a30 30 0 00-30 30c0 1.94.316 3.82.906 5.584L21.782 50 21.782 50A29.986 29.986 0 0050 80c1.94 0 3.82-.316 5.584-.906L50 78.218l0 0A29.986 29.986 0 0020 50a30 30 0 0030-30z" fill-rule="evenodd" clip-rule="evenodd" />
+                           </svg>
+                        </button>
+                        <button class="style-btn" data-style="classy">
+                            <svg class="w-8 h-8" viewBox="0 0 100 100" fill="currentColor">
+                                <path d="M50 0a50 50 0 00-50 50 50 50 0 0050 50 50 50 0 0050-50A50 50 0 0050 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <label for="logoUpload" class="text-sm font-semibold text-gray-700">Upload a center logo (optional):</label>
+                    <input type="file" id="logoUpload" accept="image/*" class="text-gray-600">
+                </div>
+
+                <button id="generateBtn" class="px-6 py-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-lg">Generate QR Code</button>
+            </div>
+            
+            <!-- Right Panel: QR Code and Download -->
+            <div class="flex-1 flex flex-col items-center justify-center bg-gray-50 rounded-xl p-6 shadow-inner border-dashed border-2 border-gray-200">
+                <div id="qrCode" class="w-full max-w-sm aspect-square bg-gray-100 rounded-xl flex items-center justify-center p-4">
+                </div>
+                <button id="downloadBtn" style="display:none;" class="mt-6 px-6 py-3 rounded-xl font-semibold text-blue-600 border-2 border-blue-600 bg-white hover:bg-blue-600 hover:text-white transition-colors">Download QR Code</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

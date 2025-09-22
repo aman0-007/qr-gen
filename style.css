@@ -1,0 +1,86 @@
+/*
+ * General Styles
+ * ---
+ * These styles apply to the entire body and main content wrapper.
+ * They create the gradient background and center the main container.
+ */
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem; /* Space for the fixed header */
+}
+
+/*
+ * Main Container and Hero Text
+ * ---
+ * Styles for the main content box and the "hero" text above it.
+ */
+.main-content-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.hero-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c5282;
+    background: linear-gradient(90deg, #2563eb, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/*
+ * Main QR Generator Container
+ * ---
+ * This is the primary box containing the inputs and output.
+ */
+.container {
+    background: #fff;
+    padding: 3rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*
+ * Style Buttons
+ * ---
+ * Visual styles for the QR code type selector buttons.
+ */
+.style-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    background-color: #f3f4f6;
+    border: 2px solid transparent;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.style-btn.active {
+    border-color: #2563eb;
+    background-color: #eff6ff;
+    color: #2563eb;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.style-btn:hover {
+    background-color: #e5e7eb;
+}
+
+.style-btn.active:hover {
+    background-color: #dbeafe;
+}
